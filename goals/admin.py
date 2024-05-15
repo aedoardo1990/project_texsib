@@ -3,7 +3,7 @@ from simple_history.admin import SimpleHistoryAdmin
 from .models import Goal
 
 
-@admin.register(Goal, SimpleHistoryAdmin)
+@admin.register(Goal)
 class GoalAdmin(admin.ModelAdmin):
     list_display = [
         'owner',
@@ -15,3 +15,5 @@ class GoalAdmin(admin.ModelAdmin):
         'updated_at',
         'others',
         ]
+    
+admin.site.register(SimpleHistoryAdmin)
