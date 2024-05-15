@@ -16,19 +16,3 @@ class GoalAdmin(admin.ModelAdmin):
         'others',
         'history'
         ]
-
-
-HistoricalCustomModel = apps.get_model("goals", "HistoricalCustomModel")
-
-@admin.register(HistoricalCustomModel)
-class HistoricalCustomModelAdmin(admin.ModelAdmin):
-    list_display = [
-        'owner',
-        'department',
-        'goal_description',
-        'goal_criteria',
-        'rating',
-        'last_update',
-        'updated_at',
-        'others',
-        ]
