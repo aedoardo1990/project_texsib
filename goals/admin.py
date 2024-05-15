@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import Goal
-from django.apps import apps
 
 
 @admin.register(Goal)
@@ -14,5 +13,4 @@ class GoalAdmin(admin.ModelAdmin):
         'last_update',
         'updated_at',
         'others',
-        'history'
         ]
