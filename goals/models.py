@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from simple_history.models import HistoricalRecords
-from django import forms
 
 
 class Goal(models.Model):
@@ -13,7 +12,7 @@ class Goal(models.Model):
     title = models.TextField(blank=True)
     goal_description = models.TextField(blank=True)
     goal_criteria = models.TextField(blank=True)
-    rating = forms.ChoiceField(choices=((str(x), x) for x in range(1,10)))
+    rating = models.IntegerField(choices=list(zip(range(1, 11), range(1, 11))), unique=True)
     last_update = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
