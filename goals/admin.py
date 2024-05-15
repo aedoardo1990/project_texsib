@@ -7,12 +7,10 @@ class GoalAdmin(admin.ModelAdmin):
     list_display = [
         'owner',
         'department',
-        'title',
         'goal_description',
         'goal_criteria',
         'rating',
         'last_update',
-        'created_at',
         'updated_at',
         'others',
         'history'
