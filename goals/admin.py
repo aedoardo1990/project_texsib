@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Goal
+from django.apps import apps
 
 
 @admin.register(Goal)
@@ -14,4 +15,20 @@ class GoalAdmin(admin.ModelAdmin):
         'updated_at',
         'others',
         'history'
+        ]
+
+
+HistoricalCustomModel = apps.get_model("goals", "HistoricalCustomModel")
+
+@admin.register(HistoricalCustomModel)
+class HistoricalCustomModelAdmin(admin.ModelAdmin):
+    list_display = [
+        'owner',
+        'department',
+        'goal_description',
+        'goal_criteria',
+        'rating',
+        'last_update',
+        'updated_at',
+        'others',
         ]
