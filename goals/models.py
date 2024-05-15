@@ -7,14 +7,14 @@ class Goal(models.Model):
     """
     Goal model
     """
-    CHOICES = [(i,i) for i in range(11)]
+    CHOICES = [(i,i) for i in range(1,11)]
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     department = models.CharField(max_length=255)
     title = models.TextField(blank=True)
     goal_description = models.TextField(blank=True)
     goal_criteria = models.TextField(blank=True)
-    rating = models.IntegerField(max_length=10, choices=CHOICES)
+    rating = models.IntegerField(choices=CHOICES, default=0)
     last_update = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
