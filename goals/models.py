@@ -1,24 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
 from simple_history.models import HistoricalRecords
+from django import forms
 
 
 class Goal(models.Model):
     """
     Goal model
     """
-    RATING = [
-        (1, "1"), (2, "2"), (3, "3"), (4, "4"),
-        (5, "5"), (6, "6"), (7, "7"), (8, "8"),
-        (9, "9"), (10, "10")
-        ]
-
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     department = models.CharField(max_length=255)
     title = models.TextField(blank=True)
     goal_description = models.TextField(blank=True)
     goal_criteria = models.TextField(blank=True)
-    rating = models.IntegerField(choices=RATING, default=1)
+    rating = forms.ChoiceField(choices=((str(x), x) for x in range(1,10)))
     last_update = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
