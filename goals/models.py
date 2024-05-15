@@ -8,9 +8,9 @@ class Goal(models.Model):
     Goal model
     """
     RATING = [
-        (1, "One"), (2, "Two"), (3, "Three"), (4, "Four"),
-        (5, "Five"), (6, "Six"), (7, "Seven"), (8, "Eight"),
-        (9, "Nine"), (10, "Ten")
+        (1, "1"), (2, "2"), (3, "3"), (4, "4"),
+        (5, "5"), (6, "6"), (7, "7"), (8, "8"),
+        (9, "9"), (10, "10")
         ]
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
